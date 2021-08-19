@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "productList";
+$username = "garrett1";
+$password = "regNym-qyrfyp-0fysmy";
+$dbname = "inventory";
 $_SESSION['collection'] = $_GET['collection'];
 //$_SESSION['filter'] = $_GET['filter'];
 // Create connection
@@ -12,9 +12,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-
-// Show necklaces with a SKU of Swat Valley $_SESSION['collection']
-$sql = "SELECT * FROM necklaces WHERE SKU LIKE '" . $_SESSION['collection'] . "-%'";
+//Check collection
+$sql = "SELECT * FROM necklaces WHERE collection LIKE '" . $_SESSION['collection'] . "'";
 
 $result = mysqli_query($conn, $sql); // First parameter is just return of "mysqli_connect()" function
 $conn->close();
@@ -23,11 +22,11 @@ $conn->close();
 <!DOCTYPE HTML>
 <html lang="en-US">
     <head>
-        <title>Fine Jewelry | Collections</title>
+        <title>Collections</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="description" content="Template by Dry Themes" />
-        <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
-        <meta name="author" content="DryThemes" />
+        <meta name="description" content="Fine Jewelry" />
+        <meta name="keywords" content="Beads, Necklaces, Fine, Jewelry" />
+        <meta name="author" content="UnshiftedBitDevelopment" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <link rel="shortcut icon" href="images/favicon.png" />    
@@ -40,33 +39,60 @@ $conn->close();
         <link rel="stylesheet" type="text/css"  href='css/sm-clean.css' />        
         <link rel="stylesheet" type="text/css"  href='style.css' />
 
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
         <!--[if lt IE 9]>
-                <script src="js/html5shiv.js"></script>                
-                <script src="js/respond.min.js"></script>                
-        <![endif]-->
+<script src="js/html5shiv.js"></script>                
+<script src="js/respond.min.js"></script>                
+<![endif]-->
+
+        <style>
+            .card-header {
+                height: auto;
+            }
+            .card-body {
+                height: auto;
+
+            }
+
+            .card-title {
+                margin: 0;
+                font-size: 16px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            /*
+            .card-header {
+            border: none;
+            }
+            */
+
+            .text-success p{
+                margin: 0px;
+                font-size: 14px;
+            }
+
+            /*
+            .card {
+            border: none;
+            }
+            */
+
+            a {
+                text-decoration: none;
+            }
+
+            a:hover 
+            {
+                text-decoration:none; 
+                cursor:pointer;  
+            }
+        </style>
 
     </head>
     <body class="page">
-
-        <table class="doc-loader">
-            <tbody>
-                <tr>
-                    <td>
-                        <img src="images/ajax-document-loader.gif" alt="Loading...">                    
-                    </td>
-                </tr>
-            </tbody>
-        </table>   
-
-        <div class="header-search">
-            <div class="content-1330 center-relative">
-                <form class="search-form">
-                    <label>		
-                        <input type="search" class="search-field" placeholder="Search ..." value="" name="s" title="Search for:">                        
-                    </label>    
-                </form>               
-            </div>
-        </div>
 
 
         <div class="body-wrapper">           
@@ -74,7 +100,7 @@ $conn->close();
                 <div class="header-logo left">
 
                     <h1 class="site-title">
-                        <a href="index.html">
+                        <a href="index.php">
                             <img src="images/favicon.jpeg" alt="logo">
                         </a>               
                     </h1>
@@ -85,37 +111,26 @@ $conn->close();
                     <nav id="header-main-menu" class="left">
                         <ul class="main-menu sm sm-clean">
                             <li>
-                                <a href="index.html">Home</a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="#portfolio">Shop</a>
-                                    </li>
-                                   
-                                </ul>
+                                <a href="index.php">Home</a>
                             </li>
                             <li>
                                 <a href="about.html">About</a>
                             </li>
                             <li>
-                                <a href="collections.html">Collections</a>
+                                <a href="collections.php?collection=Agate">Collections</a>
                             </li>    
-                             <li>
-                                 <a href="https://www.instagram.com/davidebbinghousefinejewelry/">Instagram</a> 
+                            <li>
+                                <a href="https://www.instagram.com/davidebbinghousefinejewelry/">Instagram</a> 
                             </li>
                             <li>
-                                  <a href="https://www.etsy.com/shop/davidebbinghouse">Etsy</a>
+                                <a href="https://www.etsy.com/shop/davidebbinghouse">Etsy</a>
                             </li>
                             <li>
                                 <a href="contact.html">Contact</a>
-                               
+
                             </li>
                         </ul>
                     </nav>
-                    <div class="toggle-holder relative right">
-                        <div id="toggle">
-                            <i class="fa fa-search"></i>                      
-                        </div>
-                    </div>
                     <div class="clear"></div>							
                 </div>
                 <div class="clear"></div>
@@ -125,101 +140,213 @@ $conn->close();
                 <article>
                     <div class="content-1330 center-relative">
                         <div class="page-desc">
-                         
+
                         </div>
                         <div class="clear"></div>
                         <p>&nbsp;</p>
                         <p>&nbsp;</p>
-                     <div class="button-group filters-button-group">
-                            <div class="button is-checked" data-filter="*">All</div>
-                            <div class="button" data-filter=".agates">Agates</div>
-                            <div class="button" data-filter=".carnelian">Carnelian</div>
-                            <div class="button" data-filter=".egypt">Egypt</div>
-                            <div class="button" data-filter=".swat">Swat Valley</div> 
-                            <div class="button" data-filter=".mesopotamia">Mesopotamia</div>
-                            <div class="button" data-filter=".peru">Peru</div>
-                            <div class="button" data-filter=".saharan">Saharan</div>
+                        <div class="button-group filters-button-group">
+
+                            <!-- PHP MENU -->
+                            <?php
+                            $active = $_SESSION['collection'];
+
+                            echo '<h5 class="mx-auto">' . $active . '</h5>';
+
+                            ?>
+
+                            <div class="button" data-filter=".Agates" ><a href="collections.php?collection=Agate">Agates</a></div>
+
+                            <div class="button" data-filter=".Carnelian"> <a href="collections.php?collection=Carnelian">Carnelian</a></div>
+
+                            <div class="button" data-filter=".Egypt"><a href="collections.php?collection=Egypt">Egypt</a></div>
+
+                            <div class="button" data-filter=".Swat"><a href="collections.php?collection=Swat%20Valley">Swat Valley</a></div> 
+
+                            <div class="button" data-filter=".Mesopotamia"> <a href="collections.php?collection=Mesopotamia">Mesopotamia</a></div>
+
+                            <div class="button" data-filter=".Peru"> <a href="collections.php?collection=Peru">Peru</a></div>
+
+                            <div class="button" data-filter=".Saharan"><a href="collections.php?collection=Saharan">Saharan</a></div>
+
+
+
+
+
                         </div>
                         <!--Images-->
-                        <div class="grid" id="portfolio">
-                            <div class="grid-sizer"></div>
-                            <div class="grid-item element-item p_one_third agates">
-                                <a href="product.html">
-                                    <img src="demo-images/A_showcase.jpg" alt="">
-                                    <div class="portfolio-text-holder">
-                                        <p>Agates</p>
-                                    </div>
-                                </a>
-                            </div>
-                            
-                            <div class="grid-item element-item p_one_third carnelian">
-                                <a href="product.html" data-rel="prettyPhoto[gallery1]">
-                                    <img src="demo-images/C_showcase.jpg" alt="">
-                                    <div class="portfolio-text-holder">
-                                        <p>Carnelian</p>
-                                    </div>
-                                </a>
-                            </div>
-                            
-                            <div class="grid-item element-item p_one_third egypt">
-                                <a href="product.html">
-                                    <img src="demo-images/E_showcase.jpg" alt="">
-                                    <div class="portfolio-text-holder">
-                                        <p>Egypt</p>
-                                    </div>
-                                </a>
-                            </div>
-                            
-                            <div class="grid-item element-item p_one_third swat">
-                                <a href="product.html" data-rel="prettyPhoto[gallery1]">
-                                    <img src="demo-images/SW_showcase.jpg" alt="">
-                                    <div class="portfolio-text-holder">
-                                        <p>Swat Valley</p>
-                                    </div>
-                                </a>
-                            </div>
-                            
-                            <div class="grid-item element-item p_one_third mesopotamia">
-                                <a href="product.html" target="_blank">
-                                    <img src="demo-images/M_showcase.jpg" alt="">
-                                    <div class="portfolio-text-holder">
-                                        <p>Mesopotamia</p>
-                                    </div>
-                                </a>
-                            </div>
-                            
-                            <div class="grid-item element-item p_one_third peru">
-                                <a href="product.html">
-                                    <img src="demo-images/P_showcase.jpg" alt="">
-                                    <div class="portfolio-text-holder">
-                                        <p>Peru</p>
-                                    </div>
-                                </a>
-                            </div>
-                             <div class="grid-item element-item p_one_third saharan">
-                                <a href="product.html">
-                                    <img src="demo-images/S_showcase.jpg" alt="">
-                                    <div class="portfolio-text-holder">
-                                        <p>Saharan</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+
+                        <!--
+<div class="grid" id="portfolio">
+<div class="grid-sizer"></div>
+<div class="grid-item element-item p_one_third agates">
+<a href="collections.php?collection=Agate">
+<img src="demo-images/A_showcase.jpg" alt="">
+<div class="portfolio-text-holder">
+<p>Agates</p>
+</div>
+</a>
+</div>
+
+<div class="grid-item element-item p_one_third carnelian">
+<a href="collections.php?collection=Carnelian">
+<img src="demo-images/C_showcase.jpg" alt="">
+<div class="portfolio-text-holder">
+<p>Carnelian</p>
+</div>
+</a>
+</div>
+
+<div class="grid-item element-item p_one_third egypt">
+<a href="collections.php?collection=Egypt">
+<img src="demo-images/E_showcase.jpg" alt="">
+<div class="portfolio-text-holder">
+<p>Egypt</p>
+</div>
+</a>
+</div>
+
+<div class="grid-item element-item p_one_third swat">
+<a href="collections.php?collection=Swat%20Valley">
+<img src="demo-images/SW_showcase.jpg" alt="">
+<div class="portfolio-text-holder">
+<p>Swat Valley</p>
+</div>
+</a>
+</div>
+
+<div class="grid-item element-item p_one_third mesopotamia">
+<a href="collections.php?collection=Mesopotamia">
+<img src="demo-images/M_showcase.jpg" alt="">
+<div class="portfolio-text-holder">
+<p>Mesopotamia</p>
+</div>
+</a>
+</div>
+
+<div class="grid-item element-item p_one_third peru">
+<a href="collections.php?collection=Peru">
+<img src="demo-images/P_showcase.jpg" alt="">
+<div class="portfolio-text-holder">
+<p>Peru</p>
+</div>
+</a>
+</div>
+<div class="grid-item element-item p_one_third saharan">
+<a href="collections.php?collection=Saharan">
+<img src="demo-images/S_showcase.jpg" alt="">
+<div class="portfolio-text-holder">
+<p>Saharan</p>
+</div>
+</a>
+</div>
+</div>
+-->
+
                         <div class="clear"></div>
                     </div>
                 </article>
             </div>
+            <div class="container">
+                <div class="row ml-auto">
+                    <?php
+                    $count = 0;
+                    while ($row = mysqli_fetch_assoc($result)) { // Important line !!! Check summary get row on array ..
+                        // foreach ($row as $field => $value) { // I you want you can right this line like this: foreach($row as $value) {
+                        // echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
+                        if($_SESSION['collection'] == $row['collection']){
+                            $collection = $row['collection'];
+                            $sku = $row['sku'];
+                            $picture = $row['pic'];
+                            $description = $row['description'];
+                            $price = $row['price'];
+                            $materials = $row['materials'];
+                            $title = $row['name'];
+                            $size = $row['size'];
+                            $count++;
+
+                            if($sku == null){
+                                $sku = 'Coming Soon';
+                            }
+
+                            if($picture == null){
+                                $picture = "/collections/placeholder.png";
+                            }
+
+                            if($price == null){
+                                $price = 'Contact For Price';
+                                echo '<div class="col-lg-3 col-md-6 p-2 ' . $collection . '">';
+                                echo '<a href="product.php?sku=' . $sku . '" class="">';
+                                echo '<div class="card">';
+                                echo '<div class="card-header">';
+                                echo '<img class="card-img" src="/images/inventory/'. $picture .'.jpg" alt="image coming soon">';
+                                echo '</div>';
+                                echo '<div class="card-body">';
+
+                                echo '<div class="row m-0">';
+                                echo '<div class="col-12">';
+                                echo '<p class="card-title">' . $title .'</p>';   
+                                echo '</div>';
+                                echo '<div class="col-12">';
+                                echo '<div class="text-success text-left"><p class="m-0">' . $price . '</p></div>';
+                                echo '</div>'; 
+                                echo '</div>'; 
+
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</a>';
+                                echo '</div>';
+                            } else {
+                                echo '<div class="col-lg-3 col-md-6 p-2 ' . $collection . '">';
+                                echo '<a href="product.php?sku=' . $sku . '" class="">';
+                                echo '<div class="card">';
+                                echo '<div class="card-header">';
+                                echo '<img class="card-img" src="/images/inventory/'. $picture .'.jpg" alt="image coming soon">';
+                                echo '</div>';
+                                echo '<div class="card-body">';
+
+                                echo '<div class="row m-0">';
+                                echo '<div class="col-12">';
+                                echo '<p class="card-title">' . $title .'</p>';   
+                                echo '</div>';
+                                echo '<div class="col-12">';
+                                echo '<div class="text-success text-left"><p class="m-0">' . $price . '</p></div>';
+                                echo '</div>'; 
+                                echo '</div>'; 
+
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</a>';
+                                echo '</div>';
+                            }
+
+
+
+                        } else {
+                            return;
+                        }
+
+
+
+                    }
+
+                    if($count == 0) {
+                        echo '<div class="col-md-12 mx-auto"><h3 class="text-white mx-auto">Coming soon...</h3></div>';
+                    }
+                    ?>
+                </div>
+            </div>
 
             <!--Footer-->
 
-          <footer class="footer">
+            <footer class="footer">
                 <div class="content-1330 center-relative">			
                     <ul>
-                        <li class="left-footer-content">
-                            © 2020 by <a href="https://unshiftedbitdev.com">Unshifted Bit Development</a>.            
+                         <li class="left-footer-content">
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <br> <a href="https://unshiftedbitdev.com" target="_blank">Unshifted Bit Development</a>        
                         </li>
                         <li class="center-footer-content">                
-                            <a href="index.html">
+                            <a href="index.php">
                                 <img src="images/favicon.jpeg" alt="icon">
                             </a>                
                         </li>
@@ -228,7 +355,7 @@ $conn->close();
                             <a href="https://www.etsy.com/shop/davidebbinghouse">Etsy</a>
                         </li>
                         <li class="left-footer-content mobile">
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <a href="https://unshiftedbitdev.com" target="_blank">Unshifted Bit Development</a>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <br> <a href="https://unshiftedbitdev.com" target="_blank">Unshifted Bit Development</a>
                         </li>
                     </ul>
                 </div>

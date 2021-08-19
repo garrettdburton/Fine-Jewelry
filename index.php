@@ -1,29 +1,13 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "productList";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
 
-
-// Show necklaces with a SKU of Swat Valley
-$sql = "SELECT * FROM products WHERE SKU LIKE 'A-%'";
-$result = mysqli_query($conn, $sql); // First parameter is just return of "mysqli_connect()" function
-$conn->close();
-?>
 <!DOCTYPE HTML>
 <html lang="en-US">
     <head>
-        <title>Fine Jewelry | Home</title>
+        <title>Home</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="description" content="Template by Dry Themes" />
-        <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
-        <meta name="author" content="DryThemes" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="Fine Jewelry" />
+        <meta name="keywords" content="Beads, Necklaces, Fine, Jewelry" />
+        <meta name="author" content="UnshiftedBitDevelopment" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <link rel="shortcut icon" href="images/favicon.jpeg" />    
@@ -36,23 +20,8 @@ $conn->close();
         <link rel="stylesheet" type="text/css"  href='css/sm-clean.css' />        
         <link rel="stylesheet" type="text/css"  href='style.css' />
 
-        <!--[if lt IE 9]>
-<script src="js/html5shiv.js"></script>                
-<script src="js/respond.min.js"></script>                
-<![endif]-->
-
     </head>
     <body class="page">
-
-        <table class="doc-loader">
-            <tbody>
-                <tr>
-                    <td>
-                        <img src="images/ajax-document-loader.gif" alt="Loading...">                    
-                    </td>
-                </tr>
-            </tbody>
-        </table>   
 
         <div class="header-search">
             <div class="content-1330 center-relative">
@@ -70,7 +39,7 @@ $conn->close();
                 <div class="header-logo left">
 
                     <h1 class="site-title">
-                        <a href="index.html">
+                        <a href="index.php">
                             <img src="images/favicon.jpeg" alt="logo">
                         </a>               
                     </h1>
@@ -81,19 +50,13 @@ $conn->close();
                     <nav id="header-main-menu" class="left">
                         <ul class="main-menu sm sm-clean">
                             <li>
-                                <a href="index.html">Home</a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="#portfolio">Shop</a>
-                                    </li>
-
-                                </ul>
+                                <a href="index.php">Home</a>
                             </li>
                             <li>
                                 <a href="about.html">About</a>
                             </li>
                             <li>
-                                <a href="collections.html">Collections</a>
+                                <a href="collections.php?collection=All">Collections</a>
                             </li>    
                             <li>
                                 <a href="https://www.instagram.com/davidebbinghousefinejewelry/">Instagram</a> 
@@ -126,31 +89,35 @@ $conn->close();
                         <div class="clear"></div>
                         <p>&nbsp;</p>
                         <p>&nbsp;</p>
-                        <div class="button-group filters-button-group">
-                            <div class="button is-checked" data-filter="*">All</div>
-                            <div class="button" data-filter=".agates">Agates</div>
-                            <div class="button" data-filter=".carnelian">Carnelian</div>
-                            <div class="button" data-filter=".egypt">Egypt</div>
-                            <div class="button" data-filter=".swat">Swat Valley</div> 
-                            <div class="button" data-filter=".mesopotamia">Mesopotamia</div>
-                            <div class="button" data-filter=".peru">Peru</div>
-                            <div class="button" data-filter=".saharan">Saharan</div>
-                        </div>
+                        <!--
+<div class="button-group filters-button-group">
+<div class="button is-checked" data-filter="*">All</div>
+<div class="button" data-filter=".agates">Agates</div>
+<div class="button" data-filter=".carnelian">Carnelian</div>
+<div class="button" data-filter=".egypt">Egypt</div>
+<div class="button" data-filter=".swat">Swat Valley</div> 
+<div class="button" data-filter=".mesopotamia">Mesopotamia</div>
+<div class="button" data-filter=".peru">Peru</div>
+<div class="button" data-filter=".saharan">Saharan</div>
+</div>
+-->
                         <!--Images-->
+                        <h1> Collections </h1>
                         <div class="grid" id="portfolio">
+
                             <div class="grid-sizer"></div>
                             <div class="grid-item element-item p_one_third agates">
-                                <?php echo '<a href="collections.php?collection=A">';?> 
-                                <img src="demo-images/A_showcase.jpg" alt="">
-                                <div class="portfolio-text-holder">
-                                    <p>Agates</p>
-                                </div>
-                                <?php echo '</a>';?>
+                                <a href="collections.php?collection=Agate">
+                                    <img src="collections/Agate.jpg" alt="">
+                                    <div class="portfolio-text-holder">
+                                        <p>Agates</p>
+                                    </div>
+                                </a>
                             </div>
 
                             <div class="grid-item element-item p_one_third carnelian">
-                                <a href="collections.html">
-                                    <img src="demo-images/C_showcase.jpg" alt="">
+                                <a href="collections.php?collection=Carnelian">
+                                    <img src="collections/carnelian.jpg" alt="">
                                     <div class="portfolio-text-holder">
                                         <p>Carnelian</p>
                                     </div>
@@ -158,8 +125,8 @@ $conn->close();
                             </div>
 
                             <div class="grid-item element-item p_one_third egypt">
-                                <a href="collections.html">
-                                    <img src="demo-images/E_showcase.jpg" alt="">
+                                <a href="collections.php?collection=Egypt">
+                                    <img src="collections/egypt.jpg" alt="">
                                     <div class="portfolio-text-holder">
                                         <p>Egypt</p>
                                     </div>
@@ -167,8 +134,8 @@ $conn->close();
                             </div>
 
                             <div class="grid-item element-item p_one_third swat">
-                                <a href="collections.html">
-                                    <img src="demo-images/SW_showcase.jpg" alt="">
+                                <a href="collections.php?collection=Swat%20Valley">
+                                    <img src="collections/swatvalley.jpg" alt="">
                                     <div class="portfolio-text-holder">
                                         <p>Swat Valley</p>
                                     </div>
@@ -176,8 +143,8 @@ $conn->close();
                             </div>
 
                             <div class="grid-item element-item p_one_third mesopotamia">
-                                <a href="collections.html">
-                                    <img src="demo-images/M_showcase.jpg" alt="">
+                                <a href="collections.php?collection=Mesopotamia">
+                                    <img src="collections/mesopotamia.jpg" alt="">
                                     <div class="portfolio-text-holder">
                                         <p>Mesopotamia</p>
                                     </div>
@@ -185,16 +152,16 @@ $conn->close();
                             </div>
 
                             <div class="grid-item element-item p_one_third peru">
-                                <a href="collections.html">
-                                    <img src="demo-images/P_showcase.jpg" alt="">
+                                <a href="collections.php?collection=Peru">
+                                    <img src="collections/peru.jpg" alt="">
                                     <div class="portfolio-text-holder">
                                         <p>Peru</p>
                                     </div>
                                 </a>
                             </div>
                             <div class="grid-item element-item p_one_third saharan">
-                                <a href="collections.html">
-                                    <img src="demo-images/S_showcase.jpg" alt="">
+                                <a href="collections.php?collection=Saharan">
+                                    <img src="collections/saharan.jpg" alt="">
                                     <div class="portfolio-text-holder">
                                         <p>Saharan</p>
                                     </div>
@@ -214,13 +181,19 @@ $conn->close();
                             <div class="image-slider-wrapper">
                                 <ul id="slider1" class="image-slider slides center-text">
                                     <li>
-                                        <img src="demo-images/home_img_02.jpg" alt="">
+                                        <img src="images/slider/slider_1.jpg" alt="">
                                     </li>
                                     <li>
-                                        <img src="demo-images/home_img_03.jpg" alt="">
+                                        <img src="images/slider/slider_2.jpg" alt="">
                                     </li>
                                     <li>
-                                        <img src="demo-images/home_img_01.jpg" alt="">
+                                        <img src="images/slider/slider_3.jpg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="images/slider/slider_4.jpg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="images/slider/slider_5.jpg" alt="">
                                     </li>
                                 </ul>                        
                                 <div class="slider1_pagination carousel_pagination left"></div>
@@ -258,8 +231,8 @@ $conn->close();
             <footer class="footer">
                 <div class="content-1330 center-relative">			
                     <ul>
-                        <li class="left-footer-content">
-                            © 2020 by <a href="https://unshiftedbitdev.com">Unshifted Bit Development</a>.            
+                         <li class="left-footer-content">
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <br> <a href="https://unshiftedbitdev.com" target="_blank">Unshifted Bit Development</a>        
                         </li>
                         <li class="center-footer-content">                
                             <a href="index.html">
@@ -271,7 +244,7 @@ $conn->close();
                             <a href="https://www.etsy.com/shop/davidebbinghouse">Etsy</a>
                         </li>
                         <li class="left-footer-content mobile">
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <a href="https://unshiftedbitdev.com" target="_blank">Unshifted Bit Development</a>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <br> <a href="https://unshiftedbitdev.com" target="_blank">Unshifted Bit Development</a>
                         </li>
                     </ul>
                 </div>

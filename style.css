@@ -61,6 +61,9 @@ input, textarea, select
     height: 120px;        
 }
 
+.image-slider {
+    width: 600px;
+}
 .nicescroll-rails-vr:hover
 {
     cursor: pointer !important;
@@ -175,8 +178,9 @@ input, textarea, select
 
 .content-1370 img, .content-1430 img, .content-1530 img
 {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 70%;
+    max-height: 70%;
+    overflow-y: hidden;
     width: auto;
     height: auto;
 }
@@ -248,9 +252,14 @@ ul.slides li img
 
 .page-desc
 {
-    width: 925px;
     float: right;
     font-size: 24px;
+    line-height: 40px;
+}
+
+.page-slider
+{
+    float: left;
     line-height: 40px;
 }
 
@@ -1320,6 +1329,7 @@ li.left-footer-content.mobile
     {
         width: 570px;
     }
+    
 
     .grid-sizer, .grid-item 
     {
