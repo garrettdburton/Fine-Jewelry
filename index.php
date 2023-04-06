@@ -7,11 +7,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="description" content="Fine Jewelry" />
         <meta name="keywords" content="Beads, Necklaces, Fine, Jewelry" />
-        <meta name="author" content="UnshiftedBitDevelopment" />
+        <meta name="author" content="Unshifted Bit Development" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="shortcut icon" href="images/favicon.jpeg" />    
-        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CPT+Serif:400,700' rel='stylesheet' type='text/css'>		
+        <link rel="icon" href="apple-touch-icon.png">
+        	
         <link rel="stylesheet" type="text/css"  href='css/clear.css' />
         <link rel="stylesheet" type="text/css"  href='css/common.css' />
         <link rel="stylesheet" type="text/css"  href='css/font-awesome.min.css' />
