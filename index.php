@@ -4,11 +4,10 @@
     <head>
         <title>Home</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="description" content="Fine Jewelry" />
         <meta name="keywords" content="Beads, Necklaces, Fine, Jewelry" />
         <meta name="author" content="Unshifted Bit Development" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" href="apple-touch-icon.png">
         	
@@ -73,7 +72,7 @@
 
                             <div class="grid-sizer"></div>
                             <div class="grid-item element-item p_one_third agates">
-                                <a href="collections.php?collection=Agate">
+                                <a href="collections.php?collection=Agate" aria-label="Label">
                                     <img src="collections/Agate.jpg" alt="">
                                     <div class="portfolio-text-holder">
                                         <p>Agates</p>
@@ -82,7 +81,7 @@
                             </div>
 
                             <div class="grid-item element-item p_one_third carnelian">
-                                <a href="collections.php?collection=Carnelian">
+                                <a href="collections.php?collection=Carnelian" aria-label="Label">
                                     <img src="collections/carnelian.jpg" alt="">
                                     <div class="portfolio-text-holder">
                                         <p>Carnelian</p>
@@ -91,7 +90,7 @@
                             </div>
 
                             <div class="grid-item element-item p_one_third egypt">
-                                <a href="collections.php?collection=Egypt">
+                                <a href="collections.php?collection=Egypt" aria-label="Label">
                                     <img src="collections/egypt.jpg" alt="">
                                     <div class="portfolio-text-holder">
                                         <p>Egypt</p>
@@ -100,7 +99,7 @@
                             </div>
 
                             <div class="grid-item element-item p_one_third swat">
-                                <a href="collections.php?collection=Swat%20Valley">
+                                <a href="collections.php?collection=Swat%20Valley" aria-label="Label">
                                     <img src="collections/swatvalley.jpg" alt="">
                                     <div class="portfolio-text-holder">
                                         <p>Swat Valley</p>
@@ -109,7 +108,7 @@
                             </div>
 
                             <div class="grid-item element-item p_one_third mesopotamia">
-                                <a href="collections.php?collection=Mesopotamia">
+                                <a href="collections.php?collection=Mesopotamia" aria-label="Label">
                                     <img src="collections/mesopotamia.jpg" alt="">
                                     <div class="portfolio-text-holder">
                                         <p>Mesopotamia</p>
@@ -118,7 +117,7 @@
                             </div>
 
                             <div class="grid-item element-item p_one_third peru">
-                                <a href="collections.php?collection=Peru">
+                                <a href="collections.php?collection=Peru" aria-label="Label">
                                     <img src="collections/peru.jpg" alt="">
                                     <div class="portfolio-text-holder">
                                         <p>Peru</p>
@@ -126,7 +125,7 @@
                                 </a>
                             </div>
                             <div class="grid-item element-item p_one_third saharan">
-                                <a href="collections.php?collection=Saharan">
+                                <a href="collections.php?collection=Saharan" aria-label="Label">
                                     <img src="collections/saharan.jpg" alt="">
                                     <div class="portfolio-text-holder">
                                         <p>Saharan</p>
