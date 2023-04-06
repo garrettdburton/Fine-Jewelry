@@ -196,7 +196,7 @@
                                 </li>
                                 <li class="center-footer-content">                
                                     <a href="index.php">
-                                        <img src="images/favicon.jpeg" alt="icon">
+                                        <img src="apple-touch-icon.png" alt="icon">
                                     </a>                
                                 </li>
                                 <li class="right-footer-contnet">
