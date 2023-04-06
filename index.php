@@ -3,7 +3,7 @@
 <html lang="en-US">
     <head>
         <title>Home</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
         <meta name="description" content="Fine Jewelry" />
         <meta name="keywords" content="Beads, Necklaces, Fine, Jewelry" />
         <meta name="author" content="Unshifted Bit Development" />
