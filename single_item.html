@@ -1,52 +1,7 @@
-<?php
-$servername = "localhost";
-$username = "garrett1";
-$password = "regNym-qyrfyp-0fysmy";
-$dbname = "inventory";
-$_SESSION['sku'] = $_GET['sku'];
-//$_SESSION['filter'] = $_GET['filter'];
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-// Variable Declaration
-$sku = null;
-$picture = null;
-$description = null;
-$price = null;
-$materials = null;
-$title = null;
-$size = null;
-
-// Show necklaces with a SKU of Swat Valley
-$sql = "SELECT * FROM necklaces WHERE sku = '$_SESSION[sku]'";
-$result = mysqli_query($conn, $sql); // First parameter is just return of "mysqli_connect()" function
-
-while ($row = mysqli_fetch_assoc($result)) { // Important line !!! Check summary get row on array ..
-
-    foreach ($row as $field => $value) { // I you want you can right this line like this: foreach($row as $value) {
-        // echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
-        $collection = $row['collection'];
-        $sku = $row['sku'];
-        $picture = $row['pic'];
-        $description = $row['description'];
-        $price = $row['price'];
-        $materials = $row['materials'];
-        $title = $row['name'];
-        $size = $row['size'];
-
-    }
-}
-
-$conn->close();
-?>
 <!DOCTYPE HTML>
 <html lang="en-US">
     <head>
-        <title><?php echo $title ?></title>
+        <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="description" content="Fine Jewelry" />
@@ -64,21 +19,22 @@ $conn->close();
         <link rel="stylesheet" type="text/css"  href='css/sm-clean.css' />        
         <link rel="stylesheet" type="text/css"  href='style.css' />
 
-        <!--[if lt IE 9]>
-<script src="js/html5shiv.js"></script>                
-<script src="js/respond.min.js"></script>                
-<![endif]-->
-        <style>
-            strong {
-                font-size: 24px;
-            }
-            p {
-                font-size: 22px;
-            }
-        </style>
+
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
     </head>
     <body class="single single-portfolio">
 
+        <table class="doc-loader">
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="images/ajax-document-loader.gif" alt="Loading...">                    
+                    </td>
+                </tr>
+            </tbody>
+        </table>   
 
 
         <div class="body-wrapper">           
@@ -106,74 +62,55 @@ $conn->close();
                                 <a href="collections.php?collection=Agate">Collections</a>
                             </li>    
                             <li>
-                                <a href="https://www.instagram.com/davidebbinghousefinejewelry/">Instagram</a> 
-                            </li>
-                            <li>
-                                <a href="https://www.etsy.com/shop/davidebbinghouse">Etsy</a>
-                            </li>
-                            <li>
                                 <a href="contact.html">Contact</a>
 
                             </li>
                         </ul>
                     </nav>
+
                     <div class="clear"></div>							
                 </div>
                 <div class="clear"></div>
             </div>
 
             <div id="content" class="site-content content-1330 center-relative">
-                <article>                                              
-                    <div class="content-1330 center-relative clear">                
-                        <div class="entry-content">
-                            <div class="content-wrap">                           
-                                <div class="content-1530 center-relative block">
-                                    <script>
-                                        var slider1_speed = "500";
-                                        var slider1_auto = "true";
-                                        var slider1_pagination = "true";
-                                        var slider1_hover = "true";
-                                    </script>
-                                    <div class="image-slider-wrapper">
-                                        <ul id="slider1" class="image-slider slides center-text">
-                                            <li>
-                                                <?php echo '<img class="card-img" src="/images/inventory/'. $picture .'.jpg" alt="image coming soon">'; ?>
-                                            </li>
-                                        </ul>                        
-                                        <div class="slider1_pagination carousel_pagination left"></div>
-                                    </div>
-                                    <div class="clear"></div>                                                
-                                </div>
-                                <div class="clear"></div>
-                                <div class="clear"></div>
-                                <p>&nbsp;</p>
-                                <p>&nbsp;</p>
-                                <p>&nbsp;</p>
-                                <div class="one_half text-right portfolio-item-info">
-                                    <strong>Name: </strong><p><?php echo $title; ?></p><br>
-                                    <strong>Collection: </strong><p><?php echo $collection; ?></p><br>
-                                    <strong>Material: </strong><p><?php echo $materials; ?></p><br>
-                                    <strong>Size: </strong><p><?php echo $size; ?></p><br>
-                                    <strong>Price: </strong><p><?php echo $price; ?></p><br>
-                                    <p>&nbsp;</p>
-                                    <p>&nbsp;</p>
-                                    <div class="text-right">
-                                        <a href="contact.html" target="_self" class="button">Inquire</a>
-                                    </div>
-                                </div>
-                                <div class="one_half last ">
-                                    <strong>Description</strong>
-                                    <br>
-                                    <p>&nbsp;</p>
-                                    <p>
-                                        <?php echo $description; ?>
-                                    </p>
-                                </div>
-                                <div class="clear"></div>
+                <article>                         
+                    <div class="entry-content">
+                        <div class="content-wrap">                           
+                            <div class="one_half pl-5">
+                                <?php echo '<img class="img-fluid" src="/images/inventory/'. $picture .'.jpg" alt="image coming soon">'; ?>
                             </div>
+                            <div class="one_half last pl-5">
+                                <strong>Name: </strong>&nbsp;<?php echo $title; ?><br>
+                                <strong>Collection: </strong><?php echo $collection; ?><br>
+                                <strong>Material: </strong><?php echo $materials; ?><p></p>
+                                <strong>Price: </strong> <?php echo $price; ?><p></p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <div class="text-left">
+                                    <a href="contact.html" target="_self" class="button">Inquire</a>
+                                </div>
+                            </div>
+                            <div class="clear"></div>                                                
                         </div>
                         <div class="clear"></div>
+                        <div class="clear"></div>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+
+
+                        <strong><p class="text-center">Handmade for Everyone</p></strong>
+                        <br>
+                        <p>&nbsp;</p>
+                        <p class="text-center"> <?php echo $description; ?>
+                        </p>
                     </div>
+                    <div class="clear"></div>
+
+
+                    <div class="clear"></div>
+
                 </article>
             </div>
 

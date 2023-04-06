@@ -338,12 +338,11 @@ $conn->close();
             </div>
 
             <!--Footer-->
-
             <footer class="footer">
                 <div class="content-1330 center-relative">			
                     <ul>
-                         <li class="left-footer-content">
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <br> <a href="https://unshiftedbitdev.com" target="_blank">Unshifted Bit Development</a>        
+                        <li class="left-footer-content">
+                            Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved by <a href="https://unshiftedbitdev.com" target="_blank">Unshifted Bit Development</a>            
                         </li>
                         <li class="center-footer-content">                
                             <a href="index.php">
@@ -355,7 +354,9 @@ $conn->close();
                             <a href="https://www.etsy.com/shop/davidebbinghouse">Etsy</a>
                         </li>
                         <li class="left-footer-content mobile">
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <br> <a href="https://unshiftedbitdev.com" target="_blank">Unshifted Bit Development</a>
+                            Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved by <br>
+
+                            <a href="https://unshiftedbitdev.com" target="_blank">Unshifted Bit Development</a>
                         </li>
                     </ul>
                 </div>
