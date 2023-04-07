@@ -39,7 +39,7 @@
                     <nav id="header-main-menu" class="left">
                         <ul class="main-menu sm sm-clean">
                             <li>
-                                <a href="index.php">Home</a>
+                                <a href="index.php">Hom</a>
                             </li>
                             <li>
                                 <a href="about.html">About</a>
